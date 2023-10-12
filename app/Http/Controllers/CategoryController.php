@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Catagory;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
-{ 
-    protected $student;
+class CategoryController extends Controller
+{
+    protected $category;
     public function __construct() {
-        $this->student = new Student();
+        $this->category = new Catagory();
     }
-
     public function index()
     {
-        return $this->student->all();
+        return $this->category->all();
     }
 
     /**
@@ -22,7 +21,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->student->create($request->all());
+        return $this->category->create($request->all());
     }
 
     /**
@@ -30,7 +29,7 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        return $this->student->find($id);   
+        return $this->category->find($id);
     }
 
     /**
@@ -38,9 +37,7 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $student = $this->student->find($id);
-        $student->update($request->all());
-        return $student;
+        //
     }
 
     /**
@@ -48,8 +45,6 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        $student = $this->student->find($id);
-        $student->delete($id);
-        return $student;
+        //
     }
 }
